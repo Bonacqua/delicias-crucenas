@@ -1,0 +1,266 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Delicias Cruceñas</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;700&family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
+
+<style>
+
+:root{
+--bordo:#660005;
+--rosa:#DF8F9C;
+--crema:#FAF4D4;
+}
+
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+}
+
+body{
+font-family:Poppins,sans-serif;
+background:var(--crema);
+color:#333;
+}
+
+header{
+background:linear-gradient(rgba(102,0,5,.8),rgba(102,0,5,.8)),
+url('https://images.unsplash.com/photo-1509440159596-0249088772ff?q=80&w=1200');
+background-size:cover;
+background-position:center;
+padding:120px 20px;
+text-align:center;
+color:white;
+}
+
+header h1{
+font-family:'Playfair Display',serif;
+font-size:4rem;
+}
+
+header p{
+margin-top:15px;
+font-size:1.2rem;
+}
+
+nav{
+position:sticky;
+top:0;
+background:white;
+padding:15px;
+display:flex;
+justify-content:center;
+gap:20px;
+box-shadow:0 2px 10px rgba(0,0,0,.08);
+z-index:100;
+}
+
+nav a{
+text-decoration:none;
+color:var(--bordo);
+font-weight:600;
+}
+
+.section{
+max-width:1200px;
+margin:auto;
+padding:70px 20px;
+}
+
+.section-title{
+font-family:'Playfair Display',serif;
+font-size:2.8rem;
+color:var(--bordo);
+margin-bottom:30px;
+text-align:center;
+}
+
+.grid{
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(260px,1fr));
+gap:25px;
+}
+
+.card{
+background:white;
+border-radius:20px;
+padding:25px;
+box-shadow:0 10px 25px rgba(0,0,0,.08);
+transition:.3s;
+}
+
+.card:hover{
+transform:translateY(-5px);
+}
+
+.card h3{
+color:var(--bordo);
+margin-bottom:15px;
+}
+
+.card ul{
+padding-left:20px;
+}
+
+.card li{
+margin-bottom:8px;
+}
+
+footer{
+background:var(--bordo);
+color:white;
+padding:50px 20px;
+text-align:center;
+}
+
+.whatsapp{
+position:fixed;
+bottom:25px;
+right:25px;
+background:#25D366;
+color:white;
+padding:15px 20px;
+border-radius:999px;
+text-decoration:none;
+font-weight:bold;
+box-shadow:0 5px 15px rgba(0,0,0,.2);
+}
+
+@media(max-width:768px){
+
+header h1{
+font-size:2.5rem;
+}
+
+nav{
+flex-wrap:wrap;
+}
+
+}
+
+</style>
+</head>
+
+<body>
+
+<header>
+<h1>Delicias Cruceñas</h1>
+<p>Pastelería artesanal hecha con amor</p>
+</header>
+
+<nav>
+<a href="#rolls">Rolls</a>
+<a href="#cookies">Cookies</a>
+<a href="#brownies">Brownies</a>
+<a href="#budines">Budines</a>
+<a href="#tartas">Tartas</a>
+<a href="#salados">Salados</a>
+</nav>
+
+<section class="section" id="rolls">
+<h2 class="section-title">Roll de Canela</h2>
+
+<div class="grid">
+<div class="card">
+<h3>Toppings</h3>
+<ul>
+<li>Frosting clásico</li>
+<li>Chocotorta</li>
+<li>Nutella</li>
+<li>Cookie & Cream</li>
+</ul>
+</div>
+</div>
+</section>
+
+<section class="section" id="cookies">
+<h2 class="section-title">Cookies</h2>
+
+<div class="grid">
+<div class="card">
+<h3>Sabores</h3>
+<ul>
+<li>Clásica con chips de chocolate</li>
+<li>Oreo</li>
+<li>Lemon Pie</li>
+<li>Cinnabon Roll</li>
+<li>Confeti</li>
+<li>Mousse de Chocolate</li>
+</ul>
+</div>
+</div>
+</section>
+
+<section class="section" id="brownies">
+<h2 class="section-title">Brownies</h2>
+
+<div class="grid">
+<div class="card">
+<h3>Toppings</h3>
+<ul>
+<li>Dulce de leche</li>
+<li>Coco</li>
+<li>Nutella</li>
+<li>Bocha de helado americano</li>
+</ul>
+</div>
+</div>
+</section>
+
+<section class="section" id="budines">
+<h2 class="section-title">Budines</h2>
+
+<div class="grid">
+<div class="card">
+<h3>Sabores</h3>
+<ul>
+<li>Carrot Cake</li>
+<li>Chocolate</li>
+<li>Limón</li>
+</ul>
+</div>
+</div>
+</section>
+
+<section class="section" id="tartas">
+<h2 class="section-title">Tartas</h2>
+
+<div class="grid">
+<div class="card">
+<h3>Opciones</h3>
+<ul>
+<li>Lemon Pie</li>
+<li>Tarta de Frutilla</li>
+</ul>
+</div>
+</div>
+</section>
+
+<section class="section" id="salados">
+<h2 class="section-title">Salados</h2>
+
+<div class="grid">
+<div class="card">
+<h3>Especialidades</h3>
+<ul>
+<li>Chipá</li>
+</ul>
+</div>
+</div>
+</section>
+
+<footer>
+<h2>Delicias Cruceñas</h2>
+<p>Pastelería artesanal • Santa Cruz</p>
+</footer>
+
+<a class="whatsapp" href="#">
+WhatsApp
+</a>
+
+</body>
+</html>
