@@ -5,28 +5,30 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>El Horno de Leonida | Pastelería artesanal</title>
 
-  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;700&family=Playfair+Display:wght@600;700;800&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;700;900&family=Playfair+Display:wght@600;700;800&display=swap" rel="stylesheet">
 
   <style>
     :root{
       --blood:#660005;
       --pink:#DF8F9C;
       --cream:#FAF4D4;
-      --light:#fff9e8;
+      --paper:#fffaf0;
       --dark:#2b0b0d;
-      --white:#ffffff;
-      --shadow:0 20px 45px rgba(102,0,5,.16);
-      --radius:28px;
+      --brown:#9b6a43;
+      --shadow:0 22px 50px rgba(102,0,5,.16);
+      --radius:30px;
     }
 
     *{margin:0;padding:0;box-sizing:border-box}
     html{scroll-behavior:smooth}
+
     body{
       font-family:'DM Sans',sans-serif;
-      background:
-        radial-gradient(circle at top left, rgba(223,143,156,.45), transparent 30%),
-        linear-gradient(135deg,var(--cream),#fff4f6);
       color:var(--dark);
+      background:
+        radial-gradient(circle at top left, rgba(223,143,156,.40), transparent 32%),
+        radial-gradient(circle at 90% 20%, rgba(102,0,5,.10), transparent 28%),
+        linear-gradient(135deg,var(--cream),#fff6ee);
       overflow-x:hidden;
     }
 
@@ -37,17 +39,18 @@
       top:18px;
       left:50%;
       transform:translateX(-50%);
-      width:min(1120px,92%);
-      background:rgba(255,255,255,.82);
+      width:min(1140px,92%);
+      background:rgba(255,255,255,.84);
       backdrop-filter:blur(14px);
       border:1px solid rgba(102,0,5,.12);
       border-radius:999px;
       display:flex;
-      align-items:center;
       justify-content:space-between;
+      align-items:center;
+      gap:18px;
       padding:12px 18px;
       z-index:100;
-      box-shadow:0 12px 30px rgba(102,0,5,.12);
+      box-shadow:0 14px 35px rgba(102,0,5,.12);
     }
 
     .brand{
@@ -55,30 +58,26 @@
       font-weight:800;
       color:var(--blood);
       font-size:1.25rem;
-      letter-spacing:.2px;
+      white-space:nowrap;
     }
 
     .nav{
       display:flex;
       gap:18px;
       font-size:.92rem;
-      font-weight:700;
+      font-weight:900;
       color:var(--blood);
     }
-
-    .nav a:hover{color:var(--pink)}
 
     .btn{
       display:inline-flex;
       align-items:center;
       justify-content:center;
-      gap:8px;
-      border:none;
       border-radius:999px;
       padding:13px 22px;
       background:var(--blood);
       color:white;
-      font-weight:800;
+      font-weight:900;
       box-shadow:0 10px 25px rgba(102,0,5,.22);
       transition:.25s;
     }
@@ -88,35 +87,35 @@
     .btn.secondary{
       background:white;
       color:var(--blood);
-      border:1px solid rgba(102,0,5,.16);
+      border:1px solid rgba(102,0,5,.18);
     }
 
     .hero{
       min-height:100vh;
-      display:grid;
-      grid-template-columns:1.05fr .95fr;
-      gap:40px;
-      align-items:center;
       max-width:1180px;
       margin:auto;
       padding:135px 22px 70px;
+      display:grid;
+      grid-template-columns:1fr 1fr;
+      gap:42px;
+      align-items:center;
     }
 
     .eyebrow{
       display:inline-block;
-      background:rgba(223,143,156,.32);
+      background:rgba(223,143,156,.28);
       color:var(--blood);
       padding:9px 16px;
       border-radius:999px;
-      font-weight:800;
+      font-weight:900;
       margin-bottom:18px;
     }
 
     h1{
       font-family:'Playfair Display',serif;
-      font-size:clamp(3.2rem,7vw,6.8rem);
-      line-height:.88;
       color:var(--blood);
+      font-size:clamp(3rem,6.5vw,6.3rem);
+      line-height:.9;
       letter-spacing:-2px;
     }
 
@@ -131,128 +130,102 @@
       display:flex;
       flex-wrap:wrap;
       gap:14px;
-      margin-top:25px;
     }
 
-    .hero-card{
+    .hero-photo{
       position:relative;
-      background:linear-gradient(160deg,var(--pink),#ffd5dc);
-      border-radius:42px;
-      padding:28px;
-      box-shadow:var(--shadow);
-      min-height:540px;
+      border-radius:44px;
+      min-height:560px;
       overflow:hidden;
+      box-shadow:var(--shadow);
+      background:url('img/brownie-hand.jpeg') center/cover no-repeat;
     }
 
-    .hero-card:before{
+    .hero-photo:after{
       content:"";
       position:absolute;
-      inset:18px;
-      border:2px dashed rgba(102,0,5,.22);
-      border-radius:34px;
-    }
-
-    .product-visual{
-      position:absolute;
-      inset:70px 30px auto;
-      height:330px;
-      border-radius:36px;
-      background:
-        linear-gradient(rgba(102,0,5,.18),rgba(102,0,5,.12)),
-        url('https://images.unsplash.com/photo-1509365465985-25d11c17e812?q=80&w=1200&auto=format&fit=crop');
-      background-size:cover;
-      background-position:center;
-      box-shadow:0 18px 45px rgba(102,0,5,.25);
+      inset:0;
+      background:linear-gradient(to top,rgba(102,0,5,.35),transparent 55%);
     }
 
     .sticker{
       position:absolute;
-      right:30px;
-      bottom:34px;
-      background:var(--blood);
-      color:white;
+      right:26px;
+      bottom:26px;
       width:155px;
       height:155px;
       border-radius:50%;
+      background:var(--blood);
+      color:white;
       display:grid;
       place-items:center;
       text-align:center;
-      font-family:'Playfair Display',serif;
-      font-size:1.3rem;
-      transform:rotate(-8deg);
       padding:20px;
-    }
-
-    .floating-note{
-      position:absolute;
-      left:28px;
-      bottom:52px;
-      background:var(--cream);
-      color:var(--blood);
-      border-radius:24px;
-      padding:18px;
-      width:220px;
-      font-weight:800;
-      box-shadow:0 12px 28px rgba(102,0,5,.14);
+      font-family:'Playfair Display',serif;
+      font-size:1.25rem;
+      transform:rotate(-8deg);
+      z-index:2;
     }
 
     section{
       max-width:1180px;
       margin:auto;
-      padding:75px 22px;
+      padding:76px 22px;
     }
 
     .section-head{
       display:flex;
-      align-items:end;
       justify-content:space-between;
-      gap:22px;
-      margin-bottom:30px;
+      align-items:end;
+      gap:28px;
+      margin-bottom:32px;
     }
 
     .section-head h2{
       font-family:'Playfair Display',serif;
-      font-size:clamp(2.3rem,5vw,4.2rem);
       color:var(--blood);
+      font-size:clamp(2.4rem,5vw,4.4rem);
       line-height:.95;
     }
 
     .section-head p{
-      max-width:450px;
-      line-height:1.6;
+      max-width:460px;
+      line-height:1.65;
       color:#5d3336;
     }
 
     .favorites{
       display:grid;
       grid-template-columns:repeat(3,1fr);
-      gap:22px;
+      gap:24px;
     }
 
-    .fav-card{
-      background:white;
+    .card{
+      background:rgba(255,255,255,.85);
+      border:1px solid rgba(102,0,5,.10);
       border-radius:var(--radius);
       overflow:hidden;
       box-shadow:var(--shadow);
-      border:1px solid rgba(102,0,5,.08);
     }
 
-    .fav-img{
-      height:250px;
+    .card-img{
+      height:285px;
       background-size:cover;
       background-position:center;
     }
 
-    .fav-card:nth-child(1) .fav-img{background-image:url('https://images.unsplash.com/photo-1509365465985-25d11c17e812?q=80&w=1200&auto=format&fit=crop')}
-    .fav-card:nth-child(2) .fav-img{background-image:url('https://images.unsplash.com/photo-1499636136210-6f4ee915583e?q=80&w=1200&auto=format&fit=crop')}
-    .fav-card:nth-child(3) .fav-img{background-image:url('https://images.unsplash.com/photo-1606313564200-e75d5e30476c?q=80&w=1200&auto=format&fit=crop')}
+    .card-body{padding:24px}
 
-    .fav-content{padding:24px}
-    .fav-content h3{
-      color:var(--blood);
+    .card h3{
       font-family:'Playfair Display',serif;
-      font-size:1.7rem;
+      color:var(--blood);
+      font-size:1.8rem;
       margin-bottom:8px;
+    }
+
+    .card p{
+      line-height:1.6;
+      color:#5d3336;
     }
 
     .tag{
@@ -262,32 +235,40 @@
       color:var(--blood);
       padding:8px 13px;
       border-radius:999px;
-      font-size:.88rem;
-      font-weight:800;
+      font-size:.86rem;
+      font-weight:900;
     }
 
     .menu-grid{
       display:grid;
       grid-template-columns:repeat(2,1fr);
-      gap:22px;
+      gap:24px;
     }
 
     .menu-card{
-      background:rgba(255,255,255,.78);
-      border:1px solid rgba(102,0,5,.1);
+      background:rgba(255,255,255,.80);
       border-radius:var(--radius);
-      padding:28px;
-      box-shadow:0 12px 30px rgba(102,0,5,.08);
+      overflow:hidden;
+      box-shadow:0 14px 35px rgba(102,0,5,.10);
+      border:1px solid rgba(102,0,5,.10);
     }
 
-    .menu-card h3{
+    .menu-img{
+      height:300px;
+      background-size:cover;
+      background-position:center;
+    }
+
+    .menu-content{padding:28px}
+
+    .menu-content h3{
       font-family:'Playfair Display',serif;
       color:var(--blood);
       font-size:2rem;
-      margin-bottom:12px;
+      margin-bottom:10px;
     }
 
-    .menu-card p{
+    .menu-content p{
       color:#5d3336;
       line-height:1.6;
       margin-bottom:18px;
@@ -301,19 +282,37 @@
 
     .chip{
       background:var(--cream);
-      border:1px solid rgba(102,0,5,.12);
       color:var(--blood);
+      border:1px solid rgba(102,0,5,.13);
       border-radius:999px;
       padding:9px 13px;
-      font-weight:800;
-      font-size:.92rem;
+      font-weight:900;
+      font-size:.9rem;
+    }
+
+    .gallery{
+      display:grid;
+      grid-template-columns:1.2fr .8fr .8fr;
+      grid-template-rows:260px 260px;
+      gap:18px;
+    }
+
+    .gallery div{
+      border-radius:28px;
+      background-size:cover;
+      background-position:center;
+      box-shadow:0 16px 38px rgba(102,0,5,.12);
+    }
+
+    .gallery div:first-child{
+      grid-row:span 2;
     }
 
     .steps{
       background:var(--blood);
       color:white;
-      border-radius:42px;
-      padding:44px;
+      border-radius:44px;
+      padding:46px;
       display:grid;
       grid-template-columns:.85fr 1.15fr;
       gap:30px;
@@ -332,7 +331,7 @@
     }
 
     .step{
-      background:rgba(255,255,255,.1);
+      background:rgba(255,255,255,.10);
       border:1px solid rgba(255,255,255,.18);
       border-radius:22px;
       padding:18px;
@@ -347,10 +346,10 @@
     .insta{
       text-align:center;
       background:
-        linear-gradient(rgba(250,244,212,.86),rgba(250,244,212,.86)),
+        linear-gradient(rgba(250,244,212,.88),rgba(250,244,212,.88)),
         repeating-linear-gradient(45deg,rgba(223,143,156,.35) 0 14px, transparent 14px 28px);
-      border-radius:42px;
-      padding:58px 24px;
+      border-radius:44px;
+      padding:60px 24px;
       border:1px solid rgba(102,0,5,.12);
     }
 
@@ -376,7 +375,7 @@
     footer h3{
       font-family:'Playfair Display',serif;
       color:var(--blood);
-      font-size:2.3rem;
+      font-size:2.4rem;
       margin-bottom:10px;
     }
 
@@ -394,23 +393,32 @@
     }
 
     @media(max-width:900px){
-      .hero{grid-template-columns:1fr;padding-top:120px}
-      .hero-card{min-height:460px}
-      .favorites,.menu-grid,.steps{grid-template-columns:1fr}
+      .hero,.steps{grid-template-columns:1fr}
+      .hero-photo{min-height:460px}
+      .favorites,.menu-grid{grid-template-columns:1fr}
       .nav{display:none}
       .section-head{display:block}
       .section-head p{margin-top:12px}
+      .gallery{
+        grid-template-columns:1fr;
+        grid-template-rows:none;
+      }
+      .gallery div{
+        height:280px;
+      }
+      .gallery div:first-child{
+        grid-row:auto;
+      }
     }
 
     @media(max-width:520px){
       .topbar{top:10px;width:94%}
       .brand{font-size:1rem}
-      .hero-card{min-height:410px}
-      .product-visual{height:260px}
+      .hero{padding-top:120px}
+      .hero-photo{min-height:410px}
       .sticker{width:120px;height:120px;font-size:1rem}
-      .floating-note{width:185px;font-size:.9rem}
       .steps{padding:30px}
-      .insta h2{font-size:2.6rem}
+      .insta h2{font-size:2.5rem}
     }
   </style>
 </head>
@@ -422,6 +430,7 @@
     <nav class="nav">
       <a href="#favoritos">Favoritos</a>
       <a href="#menu">Menú</a>
+      <a href="#galeria">Galería</a>
       <a href="#comprar">Cómo comprar</a>
       <a href="#contacto">Contacto</a>
     </nav>
@@ -433,7 +442,7 @@
       <span class="eyebrow">Pastelería artesanal</span>
       <h1>Cada receta tiene una historia. Cada bocado, un recuerdo.</h1>
       <p>
-        Rolls de canela, cookies, brownies, budines y tartas elaborados artesanalmente,
+        Rolls de canela, cookies, brownies y tartas elaborados artesanalmente,
         con ingredientes de calidad y mucho cariño. Bienvenido a El Horno de Leonida.
       </p>
       <div class="hero-actions">
@@ -442,10 +451,8 @@
       </div>
     </div>
 
-    <div class="hero-card">
-      <div class="product-visual"></div>
-      <div class="floating-note">Hecho con paciencia, cariño y sabor ♡</div>
-      <div class="sticker">Nuevo menú<br>online</div>
+    <div class="hero-photo">
+      <div class="sticker">Brownies<br>bien fudgy</div>
     </div>
   </header>
 
@@ -456,29 +463,29 @@
     </div>
 
     <div class="favorites">
-      <article class="fav-card">
-        <div class="fav-img"></div>
-        <div class="fav-content">
-          <h3>Roll Nutella</h3>
-          <p>Roll suave con canela, topping de Nutella y terminación cremosa.</p>
-          <span class="tag">Best seller</span>
+      <article class="card">
+        <div class="card-img" style="background-image:url('img/rolls-box.jpeg')"></div>
+        <div class="card-body">
+          <h3>Rolls surtidos</h3>
+          <p>Rolls suaves con toppings cremosos, galletitas y sabores bien golosos.</p>
+          <span class="tag">Para compartir</span>
         </div>
       </article>
 
-      <article class="fav-card">
-        <div class="fav-img"></div>
-        <div class="fav-content">
-          <h3>Cookie Oreo</h3>
-          <p>Cookie XL con base crocante, centro húmedo y trozos de Oreo.</p>
-          <span class="tag">Ideal para merendar</span>
+      <article class="card">
+        <div class="card-img" style="background-image:url('img/cookies-box.jpeg')"></div>
+        <div class="card-body">
+          <h3>Box de cookies</h3>
+          <p>Cookies XL en sabores especiales, ideales para regalar o merendar.</p>
+          <span class="tag">Box especial</span>
         </div>
       </article>
 
-      <article class="fav-card">
-        <div class="fav-img"></div>
-        <div class="fav-content">
-          <h3>Brownie DDL</h3>
-          <p>Brownie intenso de chocolate con dulce de leche y topping a elección.</p>
+      <article class="card">
+        <div class="card-img" style="background-image:url('img/brownie-close.jpeg')"></div>
+        <div class="card-body">
+          <h3>Brownie intenso</h3>
+          <p>Chocolate profundo, textura húmeda y corte bien generoso.</p>
           <span class="tag">Chocolate lover</span>
         </div>
       </article>
@@ -487,72 +494,81 @@
 
   <section id="menu">
     <div class="section-head">
-      <h2>Menú</h2>
+      <h2>Menú artesanal</h2>
       <p>Elegí una categoría, combiná sabores y escribinos por Instagram para confirmar disponibilidad.</p>
     </div>
 
     <div class="menu-grid">
       <article class="menu-card">
-        <h3>Roll de canela</h3>
-        <p>Masa suave, canela, azúcar y toppings bien golosos.</p>
-        <div class="chips">
-          <span class="chip">Frosting clásico</span>
-          <span class="chip">Chocotorta</span>
-          <span class="chip">Nutella</span>
-          <span class="chip">Cookie & Cream</span>
+        <div class="menu-img" style="background-image:url('img/rolls-box.jpeg')"></div>
+        <div class="menu-content">
+          <h3>Roll de canela</h3>
+          <p>Masa suave, canela, azúcar y toppings bien golosos.</p>
+          <div class="chips">
+            <span class="chip">Frosting clásico</span>
+            <span class="chip">Chocotorta</span>
+            <span class="chip">Nutella</span>
+            <span class="chip">Cookie & Cream</span>
+          </div>
         </div>
       </article>
 
       <article class="menu-card">
-        <h3>Cookies</h3>
-        <p>Cookies grandes, tiernas por dentro y con sabores para todos los gustos.</p>
-        <div class="chips">
-          <span class="chip">Chips chocolate</span>
-          <span class="chip">Oreo</span>
-          <span class="chip">Lemon Pie</span>
-          <span class="chip">Cinnabon Roll</span>
-          <span class="chip">Confeti</span>
-          <span class="chip">Mousse chocolate</span>
+        <div class="menu-img" style="background-image:url('img/cookies-box.jpeg')"></div>
+        <div class="menu-content">
+          <h3>Cookies</h3>
+          <p>Cookies grandes, tiernas por dentro y con sabores para todos los gustos.</p>
+          <div class="chips">
+            <span class="chip">Chips chocolate</span>
+            <span class="chip">Oreo</span>
+            <span class="chip">Lemon Pie</span>
+            <span class="chip">Cinnabon Roll</span>
+            <span class="chip">Confeti</span>
+            <span class="chip">Mousse chocolate</span>
+          </div>
         </div>
       </article>
 
       <article class="menu-card">
-        <h3>Brownies</h3>
-        <p>Bien chocolatosos, húmedos y con toppings para convertirlos en postre.</p>
-        <div class="chips">
-          <span class="chip">Dulce de leche</span>
-          <span class="chip">Coco</span>
-          <span class="chip">Nutella</span>
-          <span class="chip">Helado americano</span>
+        <div class="menu-img" style="background-image:url('img/brownie-hand.jpeg')"></div>
+        <div class="menu-content">
+          <h3>Brownies</h3>
+          <p>Bien chocolatosos, húmedos y con toppings para convertirlos en postre.</p>
+          <div class="chips">
+            <span class="chip">Dulce de leche</span>
+            <span class="chip">Coco</span>
+            <span class="chip">Nutella</span>
+            <span class="chip">Helado americano</span>
+          </div>
         </div>
       </article>
 
       <article class="menu-card">
-        <h3>Budines</h3>
-        <p>Clásicos de pastelería para desayuno, merienda o mesa dulce.</p>
-        <div class="chips">
-          <span class="chip">Carrot Cake</span>
-          <span class="chip">Chocolate</span>
-          <span class="chip">Limón</span>
+        <div class="menu-img" style="background-image:url('img/lemon-pie.jpeg')"></div>
+        <div class="menu-content">
+          <h3>Tartas</h3>
+          <p>Opciones frescas, cremosas y perfectas para compartir.</p>
+          <div class="chips">
+            <span class="chip">Lemon Pie</span>
+            <span class="chip">Tarta de frutilla</span>
+          </div>
         </div>
       </article>
+    </div>
+  </section>
 
-      <article class="menu-card">
-        <h3>Tartas</h3>
-        <p>Opciones frescas, cremosas y perfectas para compartir.</p>
-        <div class="chips">
-          <span class="chip">Lemon Pie</span>
-          <span class="chip">Tarta de frutilla</span>
-        </div>
-      </article>
+  <section id="galeria">
+    <div class="section-head">
+      <h2>Galería</h2>
+      <p>Productos reales, hechos a mano y listos para llevar a tu mesa.</p>
+    </div>
 
-      <article class="menu-card">
-        <h3>Salados</h3>
-        <p>Para cortar con tanto dulce, también tenemos opciones saladas.</p>
-        <div class="chips">
-          <span class="chip">Chipá</span>
-        </div>
-      </article>
+    <div class="gallery">
+      <div style="background-image:url('img/roll-oreo.jpeg')"></div>
+      <div style="background-image:url('img/brownie-close.jpeg')"></div>
+      <div style="background-image:url('img/cookies-box.jpeg')"></div>
+      <div style="background-image:url('img/lemon-pie.jpeg')"></div>
+      <div style="background-image:url('img/rolls-box.jpeg')"></div>
     </div>
   </section>
 
