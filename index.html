@@ -3,38 +3,71 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="El Horno de Leonida: pastelería artesanal, rolls, cookies, brownies, budines, tartas y chipá. Pedidos por Instagram." />
   <title>El Horno de Leonida | Pastelería artesanal</title>
 
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;700;900&family=Playfair+Display:wght@600;700;800&display=swap" rel="stylesheet">
 
   <style>
     :root{
-      --wine:#8f1d3f;
+      --wine:#9a2c55;
+      --wine-dark:#6f1637;
       --rose:#df8f9c;
       --rose-soft:#ffd8df;
+      --rose-light:#fff0f3;
       --cream:#faf4d4;
       --paper:#fffaf0;
       --text:#321018;
-      --muted:#6f3d47;
+      --muted:#764652;
       --white:#ffffff;
-      --shadow:0 24px 60px rgba(143,29,63,.18);
+      --shadow:0 24px 60px rgba(154,44,85,.18);
+      --shadow-soft:0 14px 34px rgba(154,44,85,.12);
       --radius:34px;
     }
 
-    *{margin:0;padding:0;box-sizing:border-box}
-    html{scroll-behavior:smooth}
+    *{
+      margin:0;
+      padding:0;
+      box-sizing:border-box;
+    }
+
+    html{
+      scroll-behavior:smooth;
+    }
 
     body{
       font-family:'DM Sans',sans-serif;
       color:var(--text);
       background:
-        radial-gradient(circle at 15% 10%, rgba(223,143,156,.55), transparent 30%),
-        radial-gradient(circle at 90% 20%, rgba(255,216,223,.8), transparent 28%),
+        radial-gradient(circle at 15% 8%, rgba(223,143,156,.60), transparent 30%),
+        radial-gradient(circle at 92% 18%, rgba(255,216,223,.82), transparent 28%),
         linear-gradient(135deg,#fff7ec,var(--cream));
       overflow-x:hidden;
     }
 
-    a{text-decoration:none;color:inherit}
+    body:before{
+      content:"";
+      position:fixed;
+      inset:0;
+      pointer-events:none;
+      background-image:
+        radial-gradient(rgba(154,44,85,.12) 1px, transparent 1px);
+      background-size:24px 24px;
+      opacity:.28;
+      z-index:-1;
+    }
+
+    a{
+      text-decoration:none;
+      color:inherit;
+    }
+
+    img{
+      max-width:100%;
+      display:block;
+    }
 
     .topbar{
       position:fixed;
@@ -42,9 +75,9 @@
       left:50%;
       transform:translateX(-50%);
       width:min(1160px,92%);
-      background:rgba(255,255,255,.82);
+      background:rgba(255,255,255,.84);
       backdrop-filter:blur(16px);
-      border:1px solid rgba(143,29,63,.12);
+      border:1px solid rgba(154,44,85,.12);
       border-radius:999px;
       display:flex;
       justify-content:space-between;
@@ -52,7 +85,7 @@
       gap:18px;
       padding:12px 18px;
       z-index:100;
-      box-shadow:0 14px 35px rgba(143,29,63,.13);
+      box-shadow:0 14px 35px rgba(154,44,85,.13);
     }
 
     .brand{
@@ -71,7 +104,13 @@
       color:var(--wine);
     }
 
-    .nav a:hover{color:var(--rose)}
+    .nav a{
+      transition:.2s;
+    }
+
+    .nav a:hover{
+      color:var(--rose);
+    }
 
     .btn{
       display:inline-flex;
@@ -82,19 +121,26 @@
       background:var(--wine);
       color:white;
       font-weight:900;
-      box-shadow:0 10px 25px rgba(143,29,63,.22);
+      box-shadow:0 10px 25px rgba(154,44,85,.22);
       transition:.25s;
+      border:0;
+      cursor:pointer;
+      line-height:1;
     }
 
     .btn:hover{
       transform:translateY(-2px);
-      background:#b83c63;
+      background:#bf5175;
     }
 
     .btn.secondary{
       background:white;
       color:var(--wine);
-      border:1px solid rgba(143,29,63,.18);
+      border:1px solid rgba(154,44,85,.18);
+    }
+
+    .btn.secondary:hover{
+      background:var(--rose-light);
     }
 
     .hero{
@@ -110,9 +156,15 @@
       position:absolute;
       inset:0;
       background:
-        linear-gradient(to bottom,rgba(50,16,24,.32),rgba(250,244,212,.88) 78%),
+        linear-gradient(to bottom,rgba(50,16,24,.26),rgba(250,244,212,.88) 78%),
         url('img/brownie-hand.jpeg') center/cover no-repeat;
-      transform:scale(1.03);
+      transform:scale(1.04);
+      animation:slowZoom 15s ease-in-out infinite alternate;
+    }
+
+    @keyframes slowZoom{
+      from{transform:scale(1.04)}
+      to{transform:scale(1.09)}
     }
 
     .hero-content{
@@ -126,12 +178,13 @@
 
     .eyebrow{
       display:inline-block;
-      background:rgba(255,255,255,.82);
+      background:rgba(255,255,255,.84);
       color:var(--wine);
       padding:9px 16px;
       border-radius:999px;
       font-weight:900;
       margin-bottom:20px;
+      box-shadow:var(--shadow-soft);
     }
 
     h1{
@@ -163,6 +216,7 @@
       font-weight:900;
       opacity:.95;
       animation:float 1.8s ease-in-out infinite;
+      text-shadow:0 8px 28px rgba(0,0,0,.22);
     }
 
     @keyframes float{
@@ -205,8 +259,8 @@
     }
 
     .story-card{
-      background:rgba(255,255,255,.72);
-      border:1px solid rgba(143,29,63,.10);
+      background:rgba(255,255,255,.76);
+      border:1px solid rgba(154,44,85,.10);
       border-radius:44px;
       padding:46px;
       box-shadow:var(--shadow);
@@ -231,6 +285,11 @@
       border-radius:44px;
       background:url('img/rolls-box.jpeg') center/cover no-repeat;
       box-shadow:var(--shadow);
+      transition:.35s;
+    }
+
+    .story-photo:hover{
+      transform:scale(1.015);
     }
 
     .features{
@@ -264,6 +323,12 @@
       align-items:end;
       background-size:cover;
       background-position:center;
+      transition:.35s;
+    }
+
+    .product-panel:hover{
+      transform:translateY(-4px);
+      box-shadow:0 32px 80px rgba(154,44,85,.22);
     }
 
     .product-panel:after{
@@ -278,7 +343,7 @@
       z-index:2;
       color:white;
       padding:46px;
-      max-width:650px;
+      max-width:680px;
     }
 
     .product-copy h3{
@@ -301,12 +366,26 @@
     }
 
     .chip{
-      background:rgba(255,255,255,.9);
+      background:rgba(255,255,255,.92);
       color:var(--wine);
       border-radius:999px;
       padding:9px 13px;
       font-weight:900;
       font-size:.9rem;
+    }
+
+    .price-big{
+      display:inline-flex;
+      align-items:center;
+      justify-content:center;
+      margin-top:20px;
+      background:rgba(255,255,255,.92);
+      color:var(--wine);
+      font-weight:900;
+      padding:12px 18px;
+      border-radius:999px;
+      font-size:1.05rem;
+      box-shadow:0 8px 18px rgba(0,0,0,.12);
     }
 
     .box-builder{
@@ -338,7 +417,7 @@
       min-height:430px;
       background:url('img/cookies-box.jpeg') center/cover no-repeat;
       border-radius:40px;
-      box-shadow:0 18px 45px rgba(143,29,63,.20);
+      box-shadow:0 18px 45px rgba(154,44,85,.20);
     }
 
     .menu-grid{
@@ -348,26 +427,36 @@
     }
 
     .menu-card{
-      background:rgba(255,255,255,.84);
+      position:relative;
+      background:rgba(255,255,255,.86);
       border-radius:var(--radius);
       overflow:hidden;
-      box-shadow:0 14px 35px rgba(143,29,63,.10);
-      border:1px solid rgba(143,29,63,.10);
+      box-shadow:0 14px 35px rgba(154,44,85,.10);
+      border:1px solid rgba(154,44,85,.10);
       transition:.25s;
     }
 
     .menu-card:hover{
       transform:translateY(-6px);
-      box-shadow:0 24px 55px rgba(143,29,63,.16);
+      box-shadow:0 24px 55px rgba(154,44,85,.16);
     }
 
     .menu-img{
       height:260px;
       background-size:cover;
       background-position:center;
+      transition:.35s;
     }
 
-    .menu-content{padding:26px}
+    .menu-card:hover .menu-img{
+      transform:scale(1.035);
+    }
+
+    .menu-content{
+      position:relative;
+      padding:26px;
+      background:rgba(255,255,255,.86);
+    }
 
     .menu-content h3{
       font-family:'Playfair Display',serif;
@@ -379,7 +468,35 @@
     .menu-content p{
       color:var(--muted);
       line-height:1.6;
-      margin-bottom:16px;
+      margin-bottom:14px;
+    }
+
+    .price{
+      display:inline-flex;
+      align-items:center;
+      gap:6px;
+      margin:0 0 18px;
+      background:linear-gradient(135deg,var(--rose),var(--wine));
+      color:white;
+      font-weight:900;
+      padding:10px 18px;
+      border-radius:999px;
+      font-size:1rem;
+      box-shadow:0 8px 18px rgba(154,44,85,.18);
+    }
+
+    .badge{
+      position:absolute;
+      top:18px;
+      left:18px;
+      z-index:3;
+      background:rgba(255,255,255,.92);
+      color:var(--wine);
+      border-radius:999px;
+      padding:8px 13px;
+      font-size:.82rem;
+      font-weight:900;
+      box-shadow:0 10px 22px rgba(0,0,0,.12);
     }
 
     .mini-tags{
@@ -391,7 +508,7 @@
     .mini-tags span{
       background:var(--cream);
       color:var(--wine);
-      border:1px solid rgba(143,29,63,.13);
+      border:1px solid rgba(154,44,85,.13);
       border-radius:999px;
       padding:8px 12px;
       font-weight:900;
@@ -407,9 +524,16 @@
       width:100%;
       margin:0 0 18px;
       border-radius:30px;
-      box-shadow:0 16px 38px rgba(143,29,63,.14);
+      box-shadow:0 16px 38px rgba(154,44,85,.14);
       break-inside:avoid;
       display:block;
+      cursor:pointer;
+      transition:.25s;
+    }
+
+    .masonry img:hover{
+      transform:translateY(-4px) scale(1.01);
+      box-shadow:0 24px 50px rgba(154,44,85,.20);
     }
 
     .steps{
@@ -460,7 +584,7 @@
         repeating-linear-gradient(45deg,rgba(223,143,156,.38) 0 14px, transparent 14px 28px);
       border-radius:52px;
       padding:68px 24px;
-      border:1px solid rgba(143,29,63,.12);
+      border:1px solid rgba(154,44,85,.12);
       box-shadow:var(--shadow);
     }
 
@@ -492,27 +616,167 @@
       margin-bottom:10px;
     }
 
+    .whatsapp{
+      position:fixed;
+      right:22px;
+      bottom:22px;
+      background:#25D366;
+      color:white;
+      padding:14px 20px;
+      border-radius:999px;
+      font-weight:900;
+      box-shadow:0 10px 25px rgba(0,0,0,.22);
+      z-index:200;
+      transition:.25s;
+    }
+
+    .whatsapp:hover{
+      transform:translateY(-2px);
+    }
+
+    .reveal{
+      opacity:0;
+      transform:translateY(26px);
+      animation:reveal .75s ease forwards;
+      animation-timeline:view();
+      animation-range:entry 0 cover 28%;
+    }
+
+    @keyframes reveal{
+      to{
+        opacity:1;
+        transform:translateY(0);
+      }
+    }
+
+    .lightbox{
+      position:fixed;
+      inset:0;
+      background:rgba(50,16,24,.82);
+      display:none;
+      align-items:center;
+      justify-content:center;
+      padding:22px;
+      z-index:500;
+    }
+
+    .lightbox.open{
+      display:flex;
+    }
+
+    .lightbox img{
+      max-height:86vh;
+      max-width:min(920px,96vw);
+      border-radius:28px;
+      box-shadow:0 30px 90px rgba(0,0,0,.35);
+    }
+
+    .lightbox button{
+      position:absolute;
+      top:22px;
+      right:22px;
+      border:0;
+      background:white;
+      color:var(--wine);
+      border-radius:999px;
+      padding:12px 16px;
+      font-weight:900;
+      cursor:pointer;
+    }
+
     @media(max-width:980px){
-      .story,.box-builder,.steps{grid-template-columns:1fr}
-      .menu-grid{grid-template-columns:1fr 1fr}
-      .nav{display:none}
-      .section-head{display:block}
-      .section-head p{margin-top:12px}
+      .story,.box-builder,.steps{
+        grid-template-columns:1fr;
+      }
+
+      .menu-grid{
+        grid-template-columns:1fr 1fr;
+      }
+
+      .nav{
+        display:none;
+      }
+
+      .section-head{
+        display:block;
+      }
+
+      .section-head p{
+        margin-top:12px;
+      }
     }
 
     @media(max-width:620px){
-      .topbar{top:10px;width:94%}
-      .brand{font-size:1rem}
-      .btn{padding:11px 16px}
-      .hero{padding-top:110px}
-      h1{font-size:clamp(3.4rem,17vw,5.2rem)}
-      .product-panel{min-height:520px}
-      .product-copy{padding:32px}
-      .story-card,.box-builder,.steps{padding:30px;border-radius:36px}
-      .story-photo,.box-photo{min-height:360px}
-      .features{grid-template-columns:1fr}
-      .menu-grid{grid-template-columns:1fr}
-      .menu-img{height:300px}
+      .topbar{
+        top:10px;
+        width:94%;
+      }
+
+      .brand{
+        font-size:1rem;
+      }
+
+      .topbar .btn{
+        display:none;
+      }
+
+      .btn{
+        padding:11px 16px;
+      }
+
+      .hero{
+        padding-top:110px;
+      }
+
+      h1{
+        font-size:clamp(3.4rem,17vw,5.2rem);
+      }
+
+      .hero-content p{
+        font-size:1.05rem;
+      }
+
+      .product-panel{
+        min-height:520px;
+        border-radius:38px;
+      }
+
+      .product-copy{
+        padding:32px;
+      }
+
+      .story-card,.box-builder,.steps{
+        padding:30px;
+        border-radius:36px;
+      }
+
+      .story-photo,.box-photo{
+        min-height:360px;
+      }
+
+      .features{
+        grid-template-columns:1fr;
+      }
+
+      .menu-grid{
+        grid-template-columns:1fr;
+      }
+
+      .menu-img{
+        height:300px;
+      }
+
+      .masonry img{
+        border-radius:24px;
+      }
+    }
+
+    @supports not (animation-timeline:view()){
+      .reveal{
+        opacity:1;
+        transform:none;
+        animation:none;
+      }
     }
   </style>
 </head>
@@ -533,25 +797,29 @@
 
   <header class="hero">
     <div class="hero-bg"></div>
+
     <div class="hero-content">
       <span class="eyebrow">Pastelería artesanal</span>
       <h1>El Horno de Leonida</h1>
       <p>Recetas caseras, sabores generosos y productos pensados para compartir, regalar o darte ese gustito que venías postergando.</p>
+
       <div class="hero-actions">
         <a class="btn" href="#menu">Ver menú</a>
         <a class="btn secondary" href="https://www.instagram.com/el_hornodeleonida/" target="_blank">Pedir por Instagram</a>
       </div>
+
       <div class="scroll-note">Deslizá para antojarte ↓</div>
     </div>
   </header>
 
-  <section id="historia">
+  <section id="historia" class="reveal">
     <div class="story">
       <div class="story-card">
         <h2>Cada receta tiene una historia.</h2>
+
         <p>
           En El Horno de Leonida hacemos pastelería artesanal con ese espíritu de cocina casera:
-          rolls suaves, cookies XL, brownies intensos, budines húmedos y tartas frescas.
+          rolls suaves, cookies XL, brownies intensos, budines húmedos, tartas frescas y chipá recién horneado.
           Todo pensado para que cada bocado se sienta especial.
         </p>
 
@@ -566,7 +834,7 @@
     </div>
   </section>
 
-  <section id="favoritos">
+  <section id="favoritos" class="reveal">
     <div class="section-head">
       <h2>Favoritos de la casa</h2>
       <p>Fotos reales, productos reales y mucho chocolate, crema, canela y cariño.</p>
@@ -583,6 +851,7 @@
             <span class="chip">Nutella</span>
             <span class="chip">Cookie & Cream</span>
           </div>
+          <div class="price-big">$5.000</div>
         </div>
       </article>
 
@@ -596,6 +865,7 @@
             <span class="chip">Coco</span>
             <span class="chip">Helado americano</span>
           </div>
+          <div class="price-big">$7.000</div>
         </div>
       </article>
 
@@ -608,29 +878,33 @@
             <span class="chip">Carrot Cake</span>
             <span class="chip">Chocolate</span>
           </div>
+          <div class="price-big">$5.000</div>
         </div>
       </article>
     </div>
   </section>
 
-  <section>
+  <section class="reveal">
     <div class="box-builder">
       <div>
         <h2>Armá tu box para regalar.</h2>
+
         <p>
           Elegí cookies, rolls, brownies o budines y armamos una presentación especial para regalar,
           llevar a una juntada o sorprender a alguien con algo rico.
         </p>
-        <div class="hero-actions" style="margin-top:24px">
+
+        <div class="hero-actions" style="margin-top:24px;justify-content:flex-start">
           <a class="btn" href="https://www.instagram.com/el_hornodeleonida/" target="_blank">Consultar box</a>
           <a class="btn secondary" href="#menu">Ver opciones</a>
         </div>
       </div>
+
       <div class="box-photo"></div>
     </div>
   </section>
 
-  <section id="menu">
+  <section id="menu" class="reveal">
     <div class="section-head">
       <h2>Menú artesanal</h2>
       <p>Elegí tu categoría favorita y escribinos por Instagram para confirmar disponibilidad.</p>
@@ -638,77 +912,116 @@
 
     <div class="menu-grid">
       <article class="menu-card">
+        <div class="badge">🔥 Más vendido</div>
         <div class="menu-img" style="background-image:url('img/rolls-box.jpeg')"></div>
+
         <div class="menu-content">
           <h3>Roll de canela</h3>
           <p>Masa suave, canela, azúcar y toppings bien golosos.</p>
+          <div class="price">$5.000</div>
+
           <div class="mini-tags">
-            <span>Frosting</span><span>Chocotorta</span><span>Nutella</span><span>Cookie & Cream</span>
+            <span>Frosting</span>
+            <span>Chocotorta</span>
+            <span>Nutella</span>
+            <span>Cookie & Cream</span>
           </div>
         </div>
       </article>
 
       <article class="menu-card">
+        <div class="badge">🍪 XL</div>
         <div class="menu-img" style="background-image:url('img/cookies-box.jpeg')"></div>
+
         <div class="menu-content">
           <h3>Cookies</h3>
           <p>Grandes, tiernas por dentro y con sabores especiales.</p>
+          <div class="price">$5.000</div>
+
           <div class="mini-tags">
-            <span>Chips</span><span>Oreo</span><span>Lemon Pie</span><span>Confeti</span>
+            <span>Chips</span>
+            <span>Oreo</span>
+            <span>Lemon Pie</span>
+            <span>Confeti</span>
+            <span>Mousse chocolate</span>
           </div>
         </div>
       </article>
 
       <article class="menu-card">
+        <div class="badge">⭐ Favorito</div>
         <div class="menu-img" style="background-image:url('img/brownie-close.jpeg')"></div>
+
         <div class="menu-content">
           <h3>Brownies</h3>
           <p>Bien chocolatosos, húmedos y con toppings a elección.</p>
+          <div class="price">$7.000</div>
+
           <div class="mini-tags">
-            <span>Dulce de leche</span><span>Coco</span><span>Nutella</span><span>Helado</span>
+            <span>Dulce de leche</span>
+            <span>Coco</span>
+            <span>Nutella</span>
+            <span>Helado</span>
           </div>
         </div>
       </article>
 
       <article class="menu-card">
+        <div class="badge">☕ Para merendar</div>
         <div class="menu-img" style="background-image:url('img/Budines.jpeg')"></div>
+
         <div class="menu-content">
           <h3>Budines</h3>
           <p>Caseros, húmedos y perfectos para acompañar un café.</p>
+          <div class="price">$5.000</div>
+
           <div class="mini-tags">
-            <span>Limón</span><span>Carrot Cake</span><span>Chocolate</span>
+            <span>Limón</span>
+            <span>Carrot Cake</span>
+            <span>Chocolate</span>
           </div>
         </div>
       </article>
 
       <article class="menu-card">
+        <div class="badge">🍋 Fresca</div>
         <div class="menu-img" style="background-image:url('img/lemon-pie.jpeg')"></div>
+
         <div class="menu-content">
           <h3>Tartas</h3>
           <p>Frescas, cremosas y perfectas para compartir.</p>
+          <div class="price">$7.000</div>
+
           <div class="mini-tags">
-            <span>Lemon Pie</span><span>Tarta de frutilla</span>
+            <span>Lemon Pie</span>
+            <span>Tarta de frutilla</span>
           </div>
         </div>
       </article>
 
       <article class="menu-card">
-        <div class="menu-img" style="background-image:url('img/roll-oreo.jpeg')"></div>
+        <div class="badge">🧀 Recién horneado</div>
+        <div class="menu-img" style="background-image:linear-gradient(135deg,rgba(223,143,156,.55),rgba(250,244,212,.45)),url('img/chipa.jpeg')"></div>
+
         <div class="menu-content">
-          <h3>Especiales</h3>
-          <p>Sabores de temporada, boxs y combinaciones especiales.</p>
+          <h3>Chipá</h3>
+          <p>Tierno por dentro, con mucho queso e ideal para acompañar el mate.</p>
+          <div class="price">3 x $3.000 · 6 x $5.000</div>
+
           <div class="mini-tags">
-            <span>Box regalo</span><span>Edición limitada</span><span>Promo semanal</span>
+            <span>Con queso</span>
+            <span>Ideal para mate</span>
+            <span>Salado</span>
           </div>
         </div>
       </article>
     </div>
   </section>
 
-  <section id="galeria">
+  <section id="galeria" class="reveal">
     <div class="section-head">
       <h2>Galería</h2>
-      <p>Una mirada más cercana a lo que sale del horno.</p>
+      <p>Una mirada más cercana a lo que sale del horno. Tocá una foto para verla en grande.</p>
     </div>
 
     <div class="masonry">
@@ -722,10 +1035,11 @@
     </div>
   </section>
 
-  <section id="comprar">
+  <section id="comprar" class="reveal">
     <div class="steps">
       <div>
         <h2>¿Cómo comprar?</h2>
+
         <p>
           Por ahora tomamos pedidos por Instagram. Escribinos, elegí tus productos y coordinamos entrega o retiro.
         </p>
@@ -734,16 +1048,19 @@
       <div class="step-list">
         <div class="step">
           <strong>1. Elegí tu antojo</strong>
-          Mirá el menú y seleccioná sabores, toppings y cantidades.
+          Mirá el menú, seleccioná sabores, toppings y cantidades.
         </div>
+
         <div class="step">
           <strong>2. Mandanos un DM</strong>
           Escribinos por Instagram con tu pedido y fecha deseada.
         </div>
+
         <div class="step">
           <strong>3. Confirmamos disponibilidad</strong>
           Te pasamos total, tiempos y opciones de entrega o retiro.
         </div>
+
         <div class="step">
           <strong>4. Disfrutá</strong>
           Recibí tus delicias recién preparadas y listas para compartir.
@@ -752,13 +1069,18 @@
     </div>
   </section>
 
-  <section id="contacto">
+  <section id="contacto" class="reveal">
     <div class="insta">
       <h2>¿Ya sabés qué vas a pedir?</h2>
+
       <p>
         Escribinos por Instagram para consultar disponibilidad, boxs, promos y sabores de temporada.
       </p>
-      <a class="btn" href="https://www.instagram.com/el_hornodeleonida/" target="_blank">@elhornodeleonida</a>
+
+      <div class="hero-actions">
+        <a class="btn" href="https://www.instagram.com/el_hornodeleonida/" target="_blank">@elhornodeleonida</a>
+        <a class="btn secondary" href="https://wa.me/5491100000000?text=Hola%20El%20Horno%20de%20Leonida!%20Quiero%20hacer%20un%20pedido%20%F0%9F%8D%AA" target="_blank">Pedir por WhatsApp</a>
+      </div>
     </div>
   </section>
 
@@ -767,6 +1089,39 @@
     <p>Pastelería artesanal • Hecho con amor • Pedidos por Instagram</p>
     <p style="margin-top:8px">Horarios: martes a domingo de 9:00 a 20:00</p>
   </footer>
+
+  <a class="whatsapp" href="https://wa.me/5491100000000?text=Hola%20El%20Horno%20de%20Leonida!%20Quiero%20hacer%20un%20pedido%20%F0%9F%8D%AA" target="_blank">WhatsApp</a>
+
+  <div class="lightbox" id="lightbox">
+    <button type="button" id="closeLightbox">Cerrar ✕</button>
+    <img src="" alt="Foto ampliada" id="lightboxImg">
+  </div>
+
+  <script>
+    const lightbox = document.getElementById('lightbox');
+    const lightboxImg = document.getElementById('lightboxImg');
+    const closeLightbox = document.getElementById('closeLightbox');
+
+    document.querySelectorAll('.masonry img').forEach((img) => {
+      img.addEventListener('click', () => {
+        lightboxImg.src = img.src;
+        lightboxImg.alt = img.alt;
+        lightbox.classList.add('open');
+      });
+    });
+
+    closeLightbox.addEventListener('click', () => {
+      lightbox.classList.remove('open');
+      lightboxImg.src = '';
+    });
+
+    lightbox.addEventListener('click', (event) => {
+      if(event.target === lightbox){
+        lightbox.classList.remove('open');
+        lightboxImg.src = '';
+      }
+    });
+  </script>
 
 </body>
 </html>
